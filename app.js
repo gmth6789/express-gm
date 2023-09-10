@@ -1,7 +1,14 @@
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const path = require('path');
+
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
 
 app.use(express.static('static'));
 
@@ -10,5 +17,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
