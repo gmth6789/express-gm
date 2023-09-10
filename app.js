@@ -10,8 +10,13 @@ admin.initializeApp({
   credential: admin.credential.cert(credentials)
 });
 
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
 app.post('/signup', async (req, res) => {
-  console.log(req);
+  console.log(req.body);
   const user = {
     email: req.body.email,
     password: req.body.password
@@ -27,8 +32,7 @@ app.post('/signup', async (req, res) => {
 
 
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+
 
 // app.use(express.static('static'));
 
