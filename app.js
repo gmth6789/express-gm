@@ -10,6 +10,7 @@ const credentials = require("./serviceAccountKey.json");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
 app.use(express.static('static'));
 
 app.get('/', (req, res) => {
