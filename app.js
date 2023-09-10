@@ -31,14 +31,11 @@ app.post('/signup', async (req, res) => {
 })
 
 
+app.use(express.static('static'));
 
-
-
-// app.use(express.static('static'));
-
-// app.get('/', (req, res) => {
-//   res.sendFile(path.resolve('pages/index.html'));
-// });
+app.get('/', (req, res) => {
+res.sendFile(path.resolve('pages/signup.html'));
+});
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
